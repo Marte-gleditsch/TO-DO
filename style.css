@@ -91,7 +91,7 @@ ul li.editMode input[type=text] {display:block;}
     width: 400px;
     margin-left: 30px;
     padding-left: 10px;
-    color: var(--light-grey);
+    color: var(--dark-grey);
     font-family: 'Open sans', sans-serif;
     font-size: 1rem;
     font-weight: 300;
@@ -99,7 +99,7 @@ ul li.editMode input[type=text] {display:block;}
  .editModeInput:focus {
    outline: none !important;
    border: none;
-   color: var(--medium-grey);
+   color: var(--dark-grey);
    /* border: 1px solid var(--light-green); */
    /* box-shadow: 0 0 2px var(--light-green); */
  }

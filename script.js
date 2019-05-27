@@ -37,7 +37,7 @@ var UIController = (() => {
          var html, newHTML, element;
 
          element = DOMstrings.tasks;
-         html = '<li class="listItem"><input type="checkbox" class="checkbox" %checked%><span class="checkmark"></span><label class="task_description">%description%</label><input class="editModeInput" type="text" value="%description2%"><button class="edit"><i class="fas fa-pen"></i></button><button class="delete"><i class="far fa-trash-alt"></i></button></li>' 
+         html = '<li class="listItem"><input type="checkbox" class="checkbox" %checked%><span class="checkmark"></span><label class="task_description">%description%</label><input class="editModeInput" type="text" value="%description2%" ><button class="edit"><i class="fas fa-pen"></i></button><button class="delete"><i class="far fa-trash-alt"></i></button></li>' 
 
          newHTML = html.replace('%description%', input);
          newHTML = newHTML.replace('%description2%', input);
@@ -58,6 +58,7 @@ var UIController = (() => {
 
       showEditMode: event => {
          var listItem = event.target.parentNode.parentNode;
+  
          listItem.classList.toggle(ClassNames.editMode);
          toggleFocus(listItem);
       },
