@@ -1,0 +1,188 @@
+:root {
+   --dark-green: rgb(77, 198, 176);
+   --light-green: rgb(149, 225, 211);
+   --light-grey:rgb(234, 232, 232);
+   --medium-grey: rgb(206, 206, 206);
+   --dark-grey:rgb(138, 138, 138);
+   --red: rgb(194, 78, 89);
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+body {
+   font-family: 'Open sans', sans-serif;
+   font-weight: 300;
+   background: rgb(250, 250, 250);
+   color: var(--dark-grey);
+}
+.container {
+   width: 1000px;
+   margin: 100px auto;
+   padding: 20px;
+   background: white;
+   box-shadow: 0px 0px 10px var(--light-grey);
+   text-align: center;
+}
+
+/* ADD NEW TASK */
+.new_task {
+   border: none;
+   border-bottom: 1px solid var(--light-grey);
+   width: 650px;
+   font-size: 3rem;
+   font-weight: 300;
+   font-family: 'Open Sans', sans-serif;
+   color: var(--dark-green);
+   margin-top: 40px;
+}
+.new_task:focus {
+   outline: none;
+}
+.new_task::placeholder {
+   color: var(--light-green);
+}
+
+/* TASK LIST */
+.tasks {
+   list-style: none;
+   width: 600px;
+   margin: 30px auto;
+   text-align: center;
+}
+.tasks li {
+   list-style: none;
+   width: 600px;
+   margin: 0 auto;
+   overflow: hidden;
+   padding: 20px 0;
+   border-bottom: 1px solid var(--light-grey);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   position: relative;
+}
+
+/* BUTTONS */
+.edit, .delete {
+   border: none;
+   background: none;
+   color: var(--medium-grey);
+   font-size: 18px;
+   width: 60px;
+   margin: 10px 0 0;
+   cursor: pointer;
+}
+.edit:hover {color: var(--dark-green);}
+.delete:hover {color: var(--red);}
+.edit:focus, .delete:focus {outline: none;}
+ul li .edit {margin-left: auto;}
+
+/* EDIT MODE*/
+ul li input[type=text] {display: none;}
+ul li.editMode input[type=text] {display:block;}
+
+.editModeInput {
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    width: 400px;
+    margin-left: 30px;
+    padding-left: 10px;
+    color: var(--light-grey);
+    font-family: 'Open sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+ }
+ .editModeInput:focus {
+   outline: none !important;
+   border: none;
+   color: var(--medium-grey);
+   /* border: 1px solid var(--light-green); */
+   /* box-shadow: 0 0 2px var(--light-green); */
+ }
+ .editModeInput:focus ~.edit {color: var(--dark-green);}
+ ul li.editMode label {display: none;}
+ ul li label {padding-left: 40px;}
+
+
+ /* CUSTOMER CHECKBOX */
+ input[type=checkbox] {
+   position: absolute;
+   opacity: 0;
+   cursor: pointer;
+   height: 20px;
+   width: 20px;
+   z-index: 1;
+ }
+ .checkmark {
+   position: absolute;
+   top: 26px;
+   left: 0;
+   height: 20px;
+   width: 20px;
+   border-radius: 50%;
+   background-color: var(--light-grey);
+   transition: background-color 0.3s ease;
+ }
+ input:checked ~ .checkmark:after {display: block;}
+ .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+
+    left: 6px;
+    top: 3px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+input[type=checkbox]:hover ~.checkmark {background-color: var(--medium-grey);}
+input:checked ~.checkmark {background-color: var(--dark-green);}
+input:checked:hover ~.checkmark {background-color: var(--light-green);}
+
+
+/* MOBILE AND PAD */
+@media only screen and (max-width: 1100px) {
+   .container {
+      width: 700px;
+      margin: 100px auto;
+   }
+   .new_task {
+      width: 600px;
+      font-size: 2.5rem;
+   }
+   .completed_tasks {
+      width: 600px;
+   }
+}
+
+@media only screen and (max-width: 700px) {
+   .container {
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+   }
+   .new_task {
+      width: 340px;
+      font-size: 1.5rem;   
+   }
+   .completed-tasks, ul {
+      width: 340px;
+      overflow: hidden;
+   }
+   ul li label {
+      padding-left: 30px;
+      width: 450px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+   }
+}
